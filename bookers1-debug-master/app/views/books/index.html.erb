@@ -1,3 +1,4 @@
+<%= flash[:notice] %>
 <h1>Books</h1>
 
 <table>
@@ -16,7 +17,7 @@
         <td><%= book.body %></td>
         <td><%= link_to 'Show', book_path(book) %></td>
         <td><%= link_to 'Edit', edit_book_path(book) %></td>
-        <td><%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' }, class: "destroy_#{book.id}" %></td>
+        <td><%= link_to 'Destroy', book_path(book), method: :delete, data: { confirm: 'Are you sure?' }, class: "destroy_#{book.id}" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +25,4 @@
 
 
 <h2>New book</h2>
-<%= render partial: 'form' %>
+<%= render  'form', book: @book %>
